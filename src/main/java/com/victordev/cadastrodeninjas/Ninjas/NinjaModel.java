@@ -2,6 +2,7 @@ package com.victordev.cadastrodeninjas.Ninjas;
 
 import com.victordev.cadastrodeninjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
@@ -9,6 +10,10 @@ import java.util.List;
 @Entity
 // Table define o nome da tabela no banco de dados.
 @Table(name = "tb_cadastro")
+// Anotacao do lombok para construtor
+@NoArgsConstructor
+@AllArgsConstructor
+@Data  // cria automaticamente getters e setters.
 public class NinjaModel {
 
     // Id auto incrementa o id para cada registro.
@@ -31,15 +36,6 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id") // chave estrangeira (foreing key)
     private MissoesModel missoes;
 
-    // NoArgsConstructor
-    public NinjaModel(){}
-
-    // ALlArgsConstructor
-    public NinjaModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
 
 }
 
